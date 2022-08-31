@@ -25,7 +25,6 @@
  :Select ⊃#.GLOBAL.debug
  :CaseList 0
      :If 0≠en
-         ⎕←error_info
          :If 0≠⎕NC'res'
              msg←res
              info←(⍕∊info)∩' ',(⊢,⎕C)⎕A,⎕D
