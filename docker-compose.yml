@@ -3,7 +3,6 @@ version: "2"
 services:
     web:
         image: dyalog/dyalog:odbc
-        container_name: dcms_web
         volumes:
         - ${PWD}:/app
         - ${PWD}/data:/data
@@ -11,8 +10,7 @@ services:
         tty: true
         env_file: env
     db:
-        image: mariadb:10.8.2
-        container_name: dcms_db
+        image: mariadb:10.8.2   # https://serverfault.com/questions/1103333/mariadb-10-8-3-in-docker-cant-initialize-timers
         volumes:
             - ${PWD}/dcms_db:/var/lib/mysql
         env_file: env
