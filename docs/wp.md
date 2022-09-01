@@ -60,6 +60,8 @@ A custom content type contains the ID into the relevant SQL table. For example, 
 
 This data is pushed to WordPress via the REST API in the `#.DCMS.wp_` namespace. The data is simply supplied as JSON.
 
+The `/refresh` endpoint can be used to trigger a rebuild of the API data and an update of wordpress CCT items. 
+
 ### Authentication
 A WordPress user `DCMS` has permission to edit others' posts. This Access Capabilitiy (`edit_others_posts`) is set in the settings for the Custom Content Type. You can create a password (`#.GLOBAL.api.wordpress_token` in the [secrets](secrets.md)) from Wordpress via **Users → Profile → Application Password**.
 
