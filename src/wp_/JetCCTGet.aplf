@@ -9,7 +9,8 @@
  :If 200=r.HttpStatus
      msg←r.Data
  :Else
-     msg←r.(HttpStatus HttpMessage)
+     msg←'WordPress JetCCT GET FAILED: ',r.(⍕HttpStatus),' ',r.HttpMessage
+     msg ⎕SIGNAL 512
  :EndIf
 
 ⍝

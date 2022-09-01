@@ -1,6 +1,6 @@
- msg←Refresh
- msg←0 'OK'
+ res←Refresh req
+ res←req.Response
 ⍝ Rebulid cache used by API GET functions in #.DCMS.read_
- msg←read_.BuildCache ⍬
+ read_.BuildCache ⍬
 ⍝ Push data to WordPress JetEngine Custom Content
- msg←wp_.JetCCTPushTeamDyalog
+ wp_.JetCCTPushTeamDyalog

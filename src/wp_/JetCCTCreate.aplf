@@ -9,6 +9,6 @@
      h.URL←prot,name,':',pass,'@',url,info.cct
      h.Params←info
      r←h.Run
-     200≠r.HttpStatus:r.(HttpStatus HttpMessage)
+     200≠r.HttpStatus:512 ⎕SIGNAL⍨'WordPress JetCCTCreate POST FAILED: ',r.(⍕HttpStatus),' ',r.HttpMessage
      0(r.Data)
  }
