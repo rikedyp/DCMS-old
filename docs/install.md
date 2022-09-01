@@ -1,5 +1,9 @@
 # Installation and Configuration
-Development config in **dev.dcfg**. Runtime config in **run.dcfg**. The system is developed on a raw system (currently Windows) and deployed in docker on Linux.
+Development config in **dev.dcfg**. Runtime config in **run.dcfg**.
+
+To run locally, use Dyalog with `CONFIGFILE=/path/to/dev.dcfg` or **right-click → Run with Dyalog** on Windows.
+
+To run in a production-like environment, do `docker-compose up` from within the repository root folder.
 
 ## Install ODBC drivers on the host system
 !!!Warning
@@ -34,7 +38,7 @@ sudo mysql_secure_installation
 
 Next create the database `dyalog_cms`, create user `dcms` and grant privileges.
 
-You'll want to generate a secure password some how. That password should be used in the next step when creating the user `dcms`, and also pasted into **secrets/secrets.json5** which is shown below.
+You'll want to generate a secure password some how. That password should be used in the next step when creating the user `dcms`, and also set as an environment variable before launching the service.
 
 ```bash
 sudo mariadb -u root -p
@@ -67,7 +71,7 @@ grant all privileges on dyalog_cms to user dcms
     - app_dir
     - service_url
 
-## secrets
+## Configuring secrets and database information
 Docker secrets are used to store:
 - External API keys (e.g. YouTube)
 
